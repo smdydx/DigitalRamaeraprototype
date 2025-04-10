@@ -90,7 +90,7 @@ const HeroSection = () => {
               </div>
             </div>
             <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-lg text-left">
-              <span className="bg-gradient-to-r from-[#FF6E00] to-[#FFA500] text-transparent bg-clip-text font-bold">Empowering businesses</span> with cutting-edge technology and comprehensive legal services to navigate the digital transformation landscape.
+              <span className="bg-gradient-to-r from-[#00FF00] to-[#32CD32] text-transparent bg-clip-text font-bold">Empowering businesses</span> with cutting-edge technology and comprehensive legal services to navigate the digital transformation landscape.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 

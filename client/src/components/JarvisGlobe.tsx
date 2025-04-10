@@ -44,8 +44,8 @@ const JarvisGlobe = ({ size = 300 }: JarvisGlobeProps) => {
     const earthMaterial = new THREE.ShaderMaterial({
       uniforms: {
         time: { value: 0 },
-        color1: { value: new THREE.Color(0xFF6E00) }, // Primary orange
-        color2: { value: new THREE.Color(0xFFA500) }, // Golden orange
+        color1: { value: new THREE.Color(0x00FF00) }, // Primary green
+        color2: { value: new THREE.Color(0x32CD32) }, // Lime green
       },
       vertexShader: `
         varying vec3 vNormal;
