@@ -1,0 +1,87 @@
+Company Details:
+
+Company Name: Ramaera legal info Tech and Legal Services Company
+Main Focus: Technology and Legal Services Company
+Website Structure:
+
+Main Navigation 
+Home
+About Us
+Projects
+Members
+Blogs
+Services
+Contact Us
+Services Offered 
+a) Technology Services:
+Blockchain Development
+
+Custom blockchain solutions
+Smart contract development
+dApp development
+Private/public blockchain solutions
+Fintech App Development
+
+Digital payment solutions
+E-wallet and banking apps
+Loan management software
+UPI integration
+Mobile App Development
+
+Android & iOS development
+UI/UX design
+App maintenance
+b) Business Services:
+
+Real Estate Software
+
+Property management
+CRM solutions
+Smart contract integration
+MLM Software Development
+
+Binary/matrix plans
+E-wallet management
+Real-time tracking
+c) Other Digital Services:
+
+Food Delivery App Development
+Trading Platform Development
+API Services including:
+Bus Booking API
+Bharat Connect API
+Aadhaar Verification API
+Hotel Booking API
+Money Transfer API
+Financial & Legal Services (from FinanceServices.tsx):
+Company Incorporation
+Partner Registration
+LLP Formation
+FSSAI Registration
+GST Registration
+Partnership Firm Registration
+Key Website Sections:
+Landing Page: Features hero section with banner image
+About Us: Company information and value proposition
+Services: Detailed service offerings
+Projects: Portfolio of completed work
+Team Members: Company staff profiles
+Blog Section: Company updates and industry insights
+Contact Information: Ways to reach the company
+Special Features:
+Testimonials section
+Pricing information
+Recent projects showcase
+Team member profiles
+Contact form
+Visual Elements:
+
+Professional imagery including:
+Banner images
+Team photos
+Service illustrations
+Project screenshots
+Brand colors: Blue, white, and red accents
+Modern, responsive design
+Interactive elements and animations
+This website appears to be a comprehensive business platform offering both technology and legal services, with a strong focus on blockchain, fintech, and digital transformation solutions while also providing traditional business registration and compliance services.
