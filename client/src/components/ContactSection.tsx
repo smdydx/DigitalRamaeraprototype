@@ -27,12 +27,12 @@ const contactInfo = [
   {
     icon: <Mail className="h-5 w-5" />,
     title: "Email Us",
-    details: ["info@ramaera.com", "support@ramaera.com"],
+    details: ["support@ramaera.com"],
   },
   {
     icon: <Phone className="h-5 w-5" />,
     title: "Call Us",
-    details: ["+91 1234567890", "+91 9876543210"],
+    details: ["+911169310715", "+911204152818"],
   },
   {
     icon: <Clock className="h-5 w-5" />,
