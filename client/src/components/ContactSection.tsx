@@ -50,10 +50,11 @@ const socialLinks = [
 const ContactSection = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    Name: "",
+    Email: "",
+    Subject: "",
+    Enq_Message: "",
+    Company_Name: "Ramaera",
     privacy: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -82,12 +83,20 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
+      const requestData = {
+        Name: formData.Name,
+        Email: formData.Email,
+        Subject: formData.Subject,
+        Enq_Message: formData.Enq_Message,
+        Company_Name: formData.Company_Name,
+      };
+      
       const response = await fetch('https://api.ramestta.com/api/Enquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify([requestData])
       });
       
       if (!response.ok) {
@@ -205,9 +214,9 @@ const ContactSection = () => {
                     Your Name
                   </label>
                   <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="Name"
+                    name="Name"
+                    value={formData.Name}
                     onChange={handleChange}
                     placeholder="John Doe"
                     required
@@ -220,9 +229,9 @@ const ContactSection = () => {
                   </label>
                   <Input
                     type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                    id="Email"
+                    name="Email"
+                    value={formData.Email}
                     onChange={handleChange}
                     placeholder="john@example.com"
                     required
@@ -235,9 +244,9 @@ const ContactSection = () => {
                   Subject
                 </label>
                 <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
+                  id="Subject"
+                  name="Subject"
+                  value={formData.Subject}
                   onChange={handleChange}
                   placeholder="How can we help you?"
                   required
@@ -249,9 +258,9 @@ const ContactSection = () => {
                   Your Message
                 </label>
                 <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
+                  id="Enq_Message"
+                  name="Enq_Message"
+                  value={formData.Enq_Message}
                   onChange={handleChange}
                   rows={5}
                   placeholder="Tell us about your project or inquiry..."
