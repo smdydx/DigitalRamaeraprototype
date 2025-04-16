@@ -84,23 +84,25 @@ const ContactSection = () => {
 
     try {
       const currentDate = new Date();
-      const requestData = {
-        Id: 0,
+      const requestData = [{
+        Id: 1,
         Name: formData.Name,
         Email: formData.Email,
         Subject: formData.Subject,
         Enq_Message: formData.Enq_Message,
         Company_Name: "Softbeem",
         CreatedDate: currentDate.toISOString()
-      };
+      }];
       
       const response = await fetch('https://api.ramestta.com/api/Enquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*'
         },
-        body: JSON.stringify([requestData])
+        mode: 'cors',
+        body: JSON.stringify(requestData)
       });
       
       if (!response.ok) {
