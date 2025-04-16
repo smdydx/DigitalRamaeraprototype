@@ -90,13 +90,11 @@ const ContactSection = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          Id: 1,
-          Name: formData.Name,
-          Email: formData.Email,
-          Subject: formData.Subject,
-          Enq_Message: formData.Enq_Message,
-          Company_Name: "Softbeem",
-          CreatedDate: new Date().toISOString()
+          name: formData.Name,
+          email: formData.Email,
+          subject: formData.Subject,
+          message: formData.Enq_Message,
+          privacy: formData.privacy
         })
       });
 
