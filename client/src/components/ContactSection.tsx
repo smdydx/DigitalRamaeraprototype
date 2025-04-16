@@ -96,7 +96,7 @@ const ContactSection = () => {
           Enq_Message: formData.Enq_Message,
           Company_Name: "Softbeem",
           CreatedDate: new Date().toISOString()
-        }])
+        })
       });
 
       if (!response.ok) {
