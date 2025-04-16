@@ -7,7 +7,7 @@ import { fromZodError } from "zod-validation-error";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
-  app.post("https://api.ramestta.com/api/Enquiry", async (req, res) => {
+  app.post("/api/contact", async (req, res) => {
     try {
       const response = await fetch('/api/Enquiry', {
         method: 'POST',

@@ -83,13 +83,12 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://api.ramestta.com/api/Enquiry', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify([{
+        body: JSON.stringify({
           Id: 1,
           Name: formData.Name,
           Email: formData.Email,
