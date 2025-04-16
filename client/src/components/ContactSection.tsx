@@ -82,7 +82,17 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      await apiRequest("POST", "/api/contact", formData);
+      const response = await fetch('https://api.ramestta.com/api/Enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
       toast({
         title: "Message sent!",
         description: "Thank you for your message. We'll get back to you soon.",
