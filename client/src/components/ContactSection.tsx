@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeIn } from "@/lib/animations";
@@ -96,8 +97,8 @@ const ContactSection = () => {
           Enq_Message: formData.Enq_Message,
           Company_Name: "Softbeem",
           CreatedDate: new Date().toISOString()
-        }
-      ]) // Make sure there's a closing bracket for the array here
+        })
+      });
 
       if (!response.ok) {
         const errorData = await response.text();
