@@ -83,23 +83,29 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
+      const currentDate = new Date();
       const requestData = {
+        Id: 0,
         Name: formData.Name,
         Email: formData.Email,
         Subject: formData.Subject,
         Enq_Message: formData.Enq_Message,
-        Company_Name: formData.Company_Name,
+        Company_Name: "Softbeem",
+        CreatedDate: currentDate.toISOString()
       };
       
       const response = await fetch('https://api.ramestta.com/api/Enquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify([requestData])
       });
       
       if (!response.ok) {
+        const errorData = await response.text();
+        console.error('API Error:', errorData);
         throw new Error('Failed to send message');
       }
       toast({
@@ -107,10 +113,11 @@ const ContactSection = () => {
         description: "Thank you for your message. We'll get back to you soon.",
       });
       setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
+        Name: "",
+        Email: "",
+        Subject: "",
+        Enq_Message: "",
+        Company_Name: "Softbeem",
         privacy: false,
       });
     } catch (error) {
