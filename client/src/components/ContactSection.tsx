@@ -93,23 +93,24 @@ const ContactSection = () => {
         Company_Name: "Softbeem",
         CreatedDate: currentDate.toISOString()
       }];
-      
+
       const response = await fetch('https://api.ramestta.com/api/Enquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*'
+          'Accept': 'application/json'
         },
-        mode: 'cors',
         body: JSON.stringify(requestData)
       });
-      
+
       if (!response.ok) {
         const errorData = await response.text();
         console.error('API Error:', errorData);
         throw new Error('Failed to send message');
       }
+
+      const result = await response.json();
+      console.log('Success:', result);
       toast({
         title: "Message sent!",
         description: "Thank you for your message. We'll get back to you soon.",
