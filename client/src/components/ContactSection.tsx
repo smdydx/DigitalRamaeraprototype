@@ -83,17 +83,6 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const currentDate = new Date();
-      const requestData = {
-        Id: 1,
-        Name: formData.Name,
-        Email: formData.Email,
-        Subject: formData.Subject,
-        Enq_Message: formData.Enq_Message,
-        Company_Name: "Softbeem",
-        CreatedDate: currentDate.toISOString()
-      };
-
       const response = await fetch('https://api.ramestta.com/api/Enquiry', {
         method: 'POST',
         headers: {
