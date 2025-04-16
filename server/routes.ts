@@ -9,7 +9,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
   app.post("https://api.ramestta.com/api/Enquiry", async (req, res) => {
     try {
-      const response = await fetch('https://api.ramestta.com/api/Enquiry', {
+      const response = await fetch('/api/Enquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
