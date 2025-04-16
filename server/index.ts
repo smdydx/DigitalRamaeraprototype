@@ -79,7 +79,7 @@ app.use((req, res, next) => {
     });
   };
   
-  // Start with port 5000 as required by Replit workflow
+  // Start with port 5000 as required by  workflow
   tryPort(5000).catch(err => {
     log(`Failed to bind to any port: ${err.message}`);
     process.exit(1);

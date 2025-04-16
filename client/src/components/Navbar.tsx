@@ -238,8 +238,10 @@ const Navbar = () => {
                   return (
                     <div key={index} className="py-2">
                       <button
-                        onClick={toggleServicesDropdown}
-                        className="text-white hover:text-primary font-medium transition-colors duration-300 flex items-center justify-between w-full"
+                        onClick={() => {
+                          toggleServicesDropdown();
+                        }}
+                        className="text-white hover:text-primary font-medium transition-colors duration-300 flex items-center justify-between w-full px-4"
                       >
                         <span>{link.name}</span>
                         <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
@@ -282,13 +284,25 @@ const Navbar = () => {
 
                 // Normal nav links
                 return (
-                  <button
+                  <a
                     key={index}
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-white hover:text-primary font-medium py-2 transition-colors duration-300"
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.getElementById(link.href.substring(1));
+                      if (element) {
+                        setIsMobileMenuOpen(false);
+                        setTimeout(() => {
+                          const yOffset = -80;
+                          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                          window.scrollTo({ top: y, behavior: 'smooth' });
+                        }, 100);
+                      }
+                    }}
+                    className="block text-white hover:text-primary font-medium py-2 transition-colors duration-300 w-full text-left px-4"
                   >
                     {link.name}
-                  </button>
+                  </a>
                 );
               })}
             </div>

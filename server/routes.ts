@@ -9,15 +9,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {
-      const contactData = insertContactSchema.parse(req.body);
-      const contact = await Contact.create(contactData);
-      res.status(201).json({ message: "Message sent successfully", contact });
+      const contactDataArray = req.body;
+
+      if (!Array.isArray(contactDataArray)) {
+        return res.status(400).json({ message: "Invalid payload format. Expected an array." });
+      }
+
+      const contacts = [];
+      for (const contactData of contactDataArray) {
+        const validatedContactData = insertContactSchema.parse(contactData);
+        const contact = await Contact.create(validatedContactData);
+        contacts.push(contact);
+      }
+
+      res.status(201).json({ message: "Messages sent successfully", contacts });
     } catch (error) {
       if (error instanceof ZodError) {
         const validationError = fromZodError(error);
         res.status(400).json({ message: validationError.message });
       } else {
-        res.status(500).json({ message: "Failed to send message" });
+        res.status(500).json({ message: "Failed to send messages" });
       }
     }
   });
