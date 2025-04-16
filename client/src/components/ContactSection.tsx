@@ -98,11 +98,17 @@ const ContactSection = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*'
+          'Accept': 'application/json'
         },
-        mode: 'cors',
-        body: JSON.stringify(requestData)
+        body: JSON.stringify([{
+          Id: 1,
+          Name: formData.Name,
+          Email: formData.Email,
+          Subject: formData.Subject,
+          Enq_Message: formData.Enq_Message,
+          Company_Name: "Softbeem",
+          CreatedDate: new Date().toISOString()
+        }])
       });
 
       if (!response.ok) {
