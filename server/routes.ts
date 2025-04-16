@@ -9,20 +9,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {
-      const contactDataArray = req.body;
+      const response = await fetch('https://api.ramestta.com/api/Enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify([req.body])
+      });
 
-      if (!Array.isArray(contactDataArray)) {
-        return res.status(400).json({ message: "Invalid payload format. Expected an array." });
+      if (!response.ok) {
+        throw new Error('Failed to send message to external API');
       }
 
-      const contacts = [];
-      for (const contactData of contactDataArray) {
-        const validatedContactData = insertContactSchema.parse(contactData);
-        const contact = await Contact.create(validatedContactData);
-        contacts.push(contact);
-      }
-
-      res.status(201).json({ message: "Messages sent successfully", contacts });
+      const result = await response.json();
+      res.status(201).json({ message: "Message sent successfully", result });
     } catch (error) {
       if (error instanceof ZodError) {
         const validationError = fromZodError(error);
